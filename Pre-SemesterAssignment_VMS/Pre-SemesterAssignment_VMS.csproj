@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -142,10 +148,40 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708052210356_Initial.cs" />
+    <Compile Include="Migrations\201708052210356_Initial.Designer.cs">
+      <DependentUpon>201708052210356_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708052243459_AddEducationIdForeignKey.cs" />
+    <Compile Include="Migrations\201708052243459_AddEducationIdForeignKey.Designer.cs">
+      <DependentUpon>201708052243459_AddEducationIdForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708052246112_AddCenterIdForeignKey.cs" />
+    <Compile Include="Migrations\201708052246112_AddCenterIdForeignKey.Designer.cs">
+      <DependentUpon>201708052246112_AddCenterIdForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708052253217_PopulateEducationTable.cs" />
+    <Compile Include="Migrations\201708052253217_PopulateEducationTable.Designer.cs">
+      <DependentUpon>201708052253217_PopulateEducationTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Availability.cs" />
+    <Compile Include="Models\Center.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Interest.cs" />
+    <Compile Include="Models\License.cs" />
+    <Compile Include="Models\Opportunity.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\VMSContext.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\VolunteerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -184,10 +220,17 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Volunteers\Create.cshtml" />
+    <Content Include="Views\Volunteers\Delete.cshtml" />
+    <Content Include="Views\Volunteers\Details.cshtml" />
+    <Content Include="Views\Volunteers\Edit.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
+    <Content Include="Views\Volunteers\_VolunteerFormContent.cshtml" />
+    <Content Include="Views\Volunteers\_VolunteerDetailsContent.cshtml" />
+    <Content Include="Views\Volunteers\Create2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -203,6 +246,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201708052210356_Initial.resx">
+      <DependentUpon>201708052210356_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708052243459_AddEducationIdForeignKey.resx">
+      <DependentUpon>201708052243459_AddEducationIdForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708052246112_AddCenterIdForeignKey.resx">
+      <DependentUpon>201708052246112_AddCenterIdForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708052253217_PopulateEducationTable.resx">
+      <DependentUpon>201708052253217_PopulateEducationTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

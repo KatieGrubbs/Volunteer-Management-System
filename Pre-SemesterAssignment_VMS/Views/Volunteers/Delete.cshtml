@@ -1,0 +1,20 @@
+﻿@model Pre_SemesterAssignment_VMS.Models.Volunteer
+
+@{
+    ViewBag.Title = "Delete Volunteer";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Partial("_VolunteerDetailsContent")
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

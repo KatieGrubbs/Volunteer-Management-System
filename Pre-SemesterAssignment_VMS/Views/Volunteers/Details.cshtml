@@ -1,0 +1,16 @@
+﻿@model Pre_SemesterAssignment_VMS.Models.Volunteer
+
+@{
+    ViewBag.Title = "Volunteer Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    @Html.Partial("_VolunteerDetailsContent")
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VolunteerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

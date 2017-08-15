@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.Optimization;
 
 namespace Pre_SemesterAssignment_VMS
@@ -11,8 +13,10 @@ namespace Pre_SemesterAssignment_VMS
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            Bundle jQueryValidateBundle = new ScriptBundle("~/bundles/jqueryval").Include(
+                "~/Scripts/jquery.validate*");
+            jQueryValidateBundle.Orderer = new JQueryValidateBundleOrderer();
+            bundles.Add(jQueryValidateBundle);
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -24,8 +28,17 @@ namespace Pre_SemesterAssignment_VMS
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-flatly.css",
                       "~/Content/site.css"));
+        }
+
+        private class JQueryValidateBundleOrderer : IBundleOrderer
+        {
+            public IEnumerable<BundleFile> OrderFiles(BundleContext context, IEnumerable<BundleFile> files)
+            {
+                // Sort files by number of dots in file name
+                return files.OrderBy(file => file.VirtualFile.Name.Count(ch => ch == '.'));
+            }
         }
     }
 }

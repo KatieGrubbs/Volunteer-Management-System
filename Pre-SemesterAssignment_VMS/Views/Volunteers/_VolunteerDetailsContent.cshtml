@@ -1,0 +1,147 @@
+﻿@model Pre_SemesterAssignment_VMS.Models.Volunteer
+
+<br />
+<h4>Basic Information</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.FirstName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.FirstName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.LastName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.LastName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Education)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Education.EducationLevel)
+    </dd>
+</dl>
+
+<br />
+<h4>Account Details</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Username)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Username)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Password)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Password)
+    </dd>
+</dl>
+
+<br />
+<h4>Contact Information</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Address.Street)
+        <br />
+        @Html.DisplayFor(model => model.Address.City),
+        @Html.DisplayFor(model => model.Address.State)
+        @Html.DisplayFor(model => model.Address.ZipCode)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PhoneNumber)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.EmailAddress)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.EmailAddress)
+    </dd>
+</dl>
+
+<br />
+<h4> Emergency Contact Information</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.EmergencyContact.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.EmergencyContact.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.EmergencyContact.Address)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.EmergencyContact.Address.Street)
+        <br />
+        @Html.DisplayFor(model => model.EmergencyContact.Address.City),
+        @Html.DisplayFor(model => model.EmergencyContact.Address.State)
+        @Html.DisplayFor(model => model.EmergencyContact.Address.ZipCode)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.EmergencyContact.PhoneNumber)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.EmergencyContact.PhoneNumber)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.EmergencyContact.EmailAddress)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.EmergencyContact.EmailAddress)
+    </dd>
+</dl>
+
+<br />
+<h4>Other</h4>
+<hr />
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.DriversLicenseOnFile)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.DriversLicenseOnFile)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.SSCardOnFile)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.SSCardOnFile)
+    </dd>
+
+</dl>
